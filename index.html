@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imagens</title>
+    <!-- Adicione links para os arquivos CSS do Bootstrap e FontAwesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('https://i.ibb.co/HB6v6Jx/background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .fondoTransOscuro {
+            background-color: rgba(0, 128, 105, 1);
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image-grid img {
+            width: 60px;
+            height: 60px;
+            margin: 0.5rem;
+            border: 1px solid #6c757d;
+            border-radius: 0.25rem;
+            transition: transform 0.3s, filter 0.3s;
+            filter: blur(2.3px);
+        }
+        .image-grid img:hover {
+            transform: scale(1.1);
+            filter: blur(4px);
+        }
+        .header {
+            background-color: rgb(0, 128, 105);
+            color: rgb(255, 245, 240);
+            animation: fade-in 1s both;
+        }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header w-100 rounded-top">
+        <div class="d-flex justify-content-between pt-2 px-1 py-3">
+            <div class="text-left ml-1">
+                <div class="fw-bold ml-2" style="font-size: 14px;">
+                    <img src="https://pps.whatsapp.net/v/t61.24694-24/439413049_439854008652242_5430917268185994890_n.jpg?ccb=11-4&oh=01_Q5AaIAkXrY9yF8TObRdza08yKezBAaOQbM5H1vzbC6RjwmzZ&oe=66639574&_nc_sid=e6ed6c&_nc_cat=108" class="rounded-circle" style="width: 35px; height: 35px;">
+                    <strong>WhatsApp</strong>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <i class="fa fa-camera mx-3" aria-hidden="true"></i>
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <i class="fa fa-ellipsis-v mx-3" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>  
+    <div class="mt-2">
+        <div class="text-left">
+            <div class="fondoTransOscuro text-light my-2 text-uppercase py-2 px-2 small">
+                <i class="fa fa-image mr-1 fa-2x" aria-hidden="true"></i>Arquivos da galeria
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="modal fade" id="ShowImageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-title text-dark px-2" id="exampleModalLongTitle" style="overflow-wrap: break-word;"></div>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <div class="d-flex justify-content-center">
+                                    <div class="grid-wrapper" data-testid="grid-loading" aria-label="grid-loading" aria-busy="true" role="status">
+                                        <svg width="80" height="80" viewBox="0 0 105 105" fill="#6c757d" data-testid="grid-svg">
+                                            <circle cx="12.5" cy="12.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="0s" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="12.5" cy="52.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="100ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="52.5" cy="12.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="300ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="52.5" cy="52.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="600ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="92.5" cy="12.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="800ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="92.5" cy="52.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="400ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="12.5" cy="92.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="700ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="52.5" cy="92.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="500ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                            <circle cx="92.5" cy="92.5" r="12.5">
+                                                <animate attributeName="fill-opacity" begin="200ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="text-center small text-dark mt-2">Carregando imagem</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="react-reveal" aria-hidden="true">
+                    <i class="fa fa-arrow-circle-left text-danger"></i>
+                </div>
+                <div class="image-grid">
+                    <img class="react-reveal" src="https://pps.whatsapp.net/v/t61.24694-24/440792581_1978360929249244_1422856153255607890_n.jpg?ccb=11-4&oh=01_Q5AaIIFZDJyikN-GcmGvr_ze6FTvY0VGXvlJu5vkLxU6bZ-Y&oe=6663A5BD&_nc_sid=e6ed6c&_nc_cat=105" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/jhLfBnw/311860946-1140549210227134-4462863011707552602-n-b35cb4b97f0e37fb28c7.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/vwFZyBm/IMG-20221024-WA0002-2201e1b73880af9c36cd.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/WgrH82K/nudes-de-mulher-08.webp" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/ckp6Fmp/nudes-de-machos-gostosos-e-roludos-em-fotos-38.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/SmzZ1Mv/download.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/HHqZ3p9/nudes-de-mulher-66.webp" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/1b33QF5/286897339-10228391811404065-3779591014121293221-n-1eb9cfbb16324f42e692.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/rZ9wq1h/sasadsad32rf-980ac090343d62026537.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/3sRbNZk/data-image-jpeg-bas-1.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/7by344R/IMG-20220930-WA0017-61aaed8b1767feb45962.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/M1RPhCz/sdasasadsa-79af655060dbb9f05285.jpg" alt="">
+                  <img class="react-reveal" src="https://i.ibb.co/kGp8Yrw/nudes-de-mulher-09.webp" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/9WzHSVL/20220924-133553-4e6b4f9165bcb59c5e5e.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/nsZzgjm/IMG-20221020-WA0004-1a20565a288e1d1013ff.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/GVBvTsF/IMG-20221017-WA0019-9fea081376c8ca554e78.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/DY5dNZv/earth-blue-marble.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/w6k56rP/FB-IMG-1651715910277-d13bc7ca529819ae0ea7.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/pXMXWxh/67538418-10219834582198683-4418485203903709184-n-fc2f4c19bbc4a38841bd.jpg" alt="">
+                    <img class="react-reveal" src="https://i.ibb.co/q9ZVRWB/nudes-de-mulher-12.webp" alt="">
+                </div>
+                <div class="react-reveal" aria-hidden="true">
+                    <i class="fa fa-arrow-circle-right text-danger"></i>
+                  
+                </div>
+              
+            </div>
+            <div class="badge px-2 fondoTransRojo rounded small font-weight-bold text-danger mt-1">68 Imagens encontradas</div>
+        </div>
+    </div>
+
+    <!-- Adicione links para os arquivos JavaScript do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
